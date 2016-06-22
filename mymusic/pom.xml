@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.cimiento</groupId>
+  <artifactId>mymusic</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>My Media</name>
+  <url>http://maven.apache.org</url>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.5.RELEASE</version>
+    </parent>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+     <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+     </dependency>
+     
+	<dependency>
+     	<groupId>org.hibernate</groupId>
+     	<artifactId>hibernate-entitymanager</artifactId>
+     </dependency>
+
+     <dependency>
+     	<groupId>org.springframework.data</groupId>
+     	<artifactId>spring-data-jpa</artifactId>
+     </dependency>
+    	
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        
+        <exclusions>
+			<exclusion>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-logging</artifactId>
+			</exclusion>
+		</exclusions>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-log4j2</artifactId>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-test</artifactId>
+	</dependency>
+	
+    <!-- https://mvnrepository.com/artifact/org.hsqldb/hsqldb -->
+	<dependency>
+	    <groupId>org.hsqldb</groupId>
+	    <artifactId>hsqldb</artifactId>
+	</dependency>
+    
+    <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+	<dependency>
+	    <groupId>com.mchange</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>0.9.5.2</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>servlet-api</artifactId>
+	  <version>2.5</version>
+	  <scope>provided</scope>
+	</dependency>
+
+	<dependency>
+	  <groupId>javax.servlet.jsp</groupId>
+	  <artifactId>jsp-api</artifactId>
+	  <version>2.1</version>
+	  <scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	  <groupId>taglibs</groupId>
+	  <artifactId>standard</artifactId>
+	  <version>1.1.2</version>
+	</dependency>
+
+	<dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>jstl</artifactId>
+	</dependency>
+  
+  </dependencies>
+  
+  <build>
+    <finalName>mymusic</finalName>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+	</plugins>
+  </build>
+</project>
