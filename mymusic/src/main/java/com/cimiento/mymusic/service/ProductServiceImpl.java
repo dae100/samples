@@ -2,6 +2,7 @@ package com.cimiento.mymusic.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,11 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public ProductDto getProduct(Integer id) {
-		Product product = productRepo.findOne(id);
-		ProductDto dto = EntityTransformer.transformToProductDto(product);
+		Optional<Product> product = productRepo.findById(id);
+		ProductDto dto = null;
+		if (product.isPresent()) {
+			dto = EntityTransformer.transformToProductDto(product.get());
+		}
 		return dto;
 	}
 
@@ -44,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void deleteProduct(Integer id) {
-		productRepo.delete(id);
+		productRepo.deleteById(id);
 		productRepo.flush();
 	}
 

@@ -1,6 +1,7 @@
 package com.cimiento.mymusic.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -32,9 +33,9 @@ public class DbInitializer {
 		
 		// Check if records have already been initialized
 		// If none, then initialize the data
-		Artist artist = artistRepo.findOne(1);
+		Optional<Artist> artist = artistRepo.findById(1);
 		
-		if (artist == null)
+		if (artist.isEmpty())
 		{
 			Artist art1 = new Artist("The Merchants of Venus", "Indie band");
 			Artist art2 = new Artist("Chuck Berry", "50's guitarist and singer.");

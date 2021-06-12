@@ -2,6 +2,7 @@ package com.cimiento.mymusic.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,13 @@ public class ArtistServiceImpl implements ArtistService {
 
 	@Override
 	public ArtistDto getArtist(Integer id) {
-		Artist artist = artistRepo.findOne(id);
-		ArtistDto dto = EntityTransformer.transformToArtistDto(artist);
+		Optional<Artist> artist = artistRepo.findById(id);
+		ArtistDto dto = null;
+		
+		if (artist.isPresent()) {
+			dto = EntityTransformer.transformToArtistDto(artist.get());
+		}
+		
 		return dto;
 	}
 
@@ -47,7 +53,7 @@ public class ArtistServiceImpl implements ArtistService {
 
 	@Override
 	public void deleteArtist(Integer id) {		
-		artistRepo.delete(id);
+		artistRepo.deleteById(id);
 		artistRepo.flush();
 	}
 

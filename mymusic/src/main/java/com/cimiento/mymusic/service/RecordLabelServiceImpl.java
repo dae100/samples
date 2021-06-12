@@ -44,7 +44,7 @@ public class RecordLabelServiceImpl implements RecordLabelService {
 
 	@Override
 	public void deleteRecordLabel(Integer id) {
-		recordLabelRepo.delete(id);
+		recordLabelRepo.deleteById(id);
 	}
 
 }

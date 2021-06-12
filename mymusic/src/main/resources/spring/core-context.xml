@@ -16,7 +16,7 @@
 			http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
 			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 	
-    <import resource="mvc-context.xml"/>
+   <import resource="mvc-context.xml"/>
 	
 	<!-- Load properties -->
 	<context:property-placeholder location="classpath:spring/application.properties" />

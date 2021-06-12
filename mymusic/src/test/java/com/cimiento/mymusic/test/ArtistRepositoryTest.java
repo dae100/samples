@@ -2,6 +2,8 @@ package com.cimiento.mymusic.test;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class ArtistRepositoryTest {
      
     @Test
     public void testArtistRepository() {
-        Artist artist = repository.findOne(1);
+        Optional<Artist> artist = repository.findById(1);
         assertTrue(artist != null);
     }
      

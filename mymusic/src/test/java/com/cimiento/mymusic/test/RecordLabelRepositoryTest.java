@@ -2,6 +2,8 @@ package com.cimiento.mymusic.test;
 
 import static org.junit.Assert.*;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ public class RecordLabelRepositoryTest {
 	
 	@Test
 	public void test() {
-		RecordLabel label = recordLabelRepository.findOne(1);
+		Optional<RecordLabel> label = recordLabelRepository.findById(1);
 		assertTrue(label != null);
 	}
 
