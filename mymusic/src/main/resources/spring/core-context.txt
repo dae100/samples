@@ -31,6 +31,8 @@
 	<!-- Transaction management -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
+	
+	<!--
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" >
 		<property name="user" value="${jdbc.username}" />
@@ -38,7 +40,7 @@
 		<property name="driverClass" value="${jdbc.driver}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 	</bean>
-
+	-->
 	
 	<jpa:repositories base-package="com.cimiento.mymusic.repository" />
 

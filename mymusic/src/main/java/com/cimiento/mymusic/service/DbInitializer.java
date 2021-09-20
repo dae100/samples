@@ -35,7 +35,7 @@ public class DbInitializer {
 		// If none, then initialize the data
 		Optional<Artist> artist = artistRepo.findById(1);
 		
-		if (artist.isEmpty())
+		if (!artist.isPresent())
 		{
 			Artist art1 = new Artist("The Merchants of Venus", "Indie band");
 			Artist art2 = new Artist("Chuck Berry", "50's guitarist and singer.");

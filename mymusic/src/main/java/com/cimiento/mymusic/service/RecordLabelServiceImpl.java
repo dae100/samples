@@ -2,11 +2,14 @@ package com.cimiento.mymusic.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cimiento.mymusic.dto.ProductDto;
 import com.cimiento.mymusic.dto.RecordLabelDto;
+import com.cimiento.mymusic.entity.Product;
 import com.cimiento.mymusic.entity.RecordLabel;
 import com.cimiento.mymusic.repository.RecordLabelRepository;
 import com.cimiento.mymusic.util.EntityTransformer;
@@ -31,8 +34,12 @@ public class RecordLabelServiceImpl implements RecordLabelService {
 
 	@Override
 	public RecordLabelDto getRecordLabel(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<RecordLabel> recordLabel = recordLabelRepo.findById(id);
+		RecordLabelDto dto = null;
+		if (recordLabel.isPresent()) {
+			dto = EntityTransformer.transformToRecordLabelDto(recordLabel.get());
+		}
+		return dto;
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cimiento.mymusic.dto.ArtistDto;
 import com.cimiento.mymusic.entity.Artist;
@@ -45,9 +46,10 @@ public class ArtistServiceImpl implements ArtistService {
 	}
 
 	@Override
+	@Transactional
 	public void saveArtist(ArtistDto artistDto) {		
 		Artist artist = EntityTransformer.transformToArtist(artistDto);
-		artistRepo.saveAndFlush(artist);
+		artistRepo.save(artist);
 		if (artistDto.getId() == null) artistDto.setId(artist.getId());	
 	}
 
